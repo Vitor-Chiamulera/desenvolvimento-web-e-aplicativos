@@ -54,12 +54,11 @@
                 <tr>
                     <td>{{$phone->number}}</td>
                     <td>
-                        <a
-                            href="/users/{{$user->id}}/phone/{{$phone->id}}"
-                            class="btn btn-danger"
-                        >
-                            Excluir
-                        </a>
+                        <form method="POST" action="/users/{{$user->id}}/phone/{{$phone->id}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-lg">Excluir</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

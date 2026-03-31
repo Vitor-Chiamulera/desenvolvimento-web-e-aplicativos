@@ -114,4 +114,24 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    /**
+     * Store phone.
+     */
+    public function storePhone(Request $request, User $user): RedirectResponse
+    {
+        $request->validate([
+            'number' => 'required|size:11|unique:phones,number',
+        ], [
+            'number.required' => 'O campo número é obrigatório',
+            'number.size' => 'O número deve ter 11 dígitos (DDD + 9)',
+            'number.unique' => 'O número informado já existe',
+        ]);
+
+        $user->phones()->create([
+            'number' => $request->number
+        ]);
+
+        return redirect("/users/{$user->id}");
+    }
 }

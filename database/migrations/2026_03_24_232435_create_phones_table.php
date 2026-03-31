@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('number');
+            $table->string('number')->unique();
             $table->timestamps();
         });
     }
