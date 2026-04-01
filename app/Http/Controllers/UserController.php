@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -133,5 +134,15 @@ class UserController extends Controller
         ]);
 
         return redirect("/users/{$user->id}");
+    }
+
+    /**
+     * Delete phone.
+     */
+    public function deletePhone(Request $request, User $user, Phone $phone): RedirectResponse
+    { 
+        $phone->delete();
+ 
+        return back();
     }
 }

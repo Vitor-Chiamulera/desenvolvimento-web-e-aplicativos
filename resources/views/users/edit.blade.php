@@ -40,42 +40,8 @@
             >
         </div>
 
-        <h3>Phones</h3>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Número</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($user->phones as $phone)
-                <tr>
-                    <td>{{$phone->number}}</td>
-                    <td>
-                        <form method="POST" action="/users/{{$user->id}}/phone/{{$phone->id}}">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-lg">Excluir</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        <div>
-            <a
-                href="/users/{{$user->id}}/phone"
-                class="btn btn-primary my-3"
-            >
-                Adicionar telefone
-            </a>
-        </div>
-
-        <a href="/users" class="btn btn-secondary btn-lg">Voltar</a>
-        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+        <a href="/users" class="btn btn-secondary">Voltar</a>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 
     @if ($errors->any())
@@ -87,5 +53,41 @@
             </ul>
         </div>
     @endif
+
+    <br>
+
+    <h3>Phones</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($user->phones as $phone)
+            <tr>
+                <td>{{$phone->number}}</td>
+                <td>
+                    <form method="POST" action="/users/{{$user->id}}/phone/{{$phone->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <div>
+        <a
+            href="/users/{{$user->id}}/phone"
+            class="btn btn-primary my-3"
+        >
+            Adicionar telefone
+        </a>
+    </div>
 </body>
 </html>
