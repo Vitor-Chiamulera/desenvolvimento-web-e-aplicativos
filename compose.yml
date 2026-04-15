@@ -28,9 +28,9 @@ services:
     image: mysql:8.0
     container_name: laravel12-db
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_USER: laravel
-      MYSQL_PASSWORD: laravel
+      MYSQL_DATABASE: biblioteca
+      MYSQL_USER: biblio
+      MYSQL_PASSWORD: biblio
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "3307:3306"
