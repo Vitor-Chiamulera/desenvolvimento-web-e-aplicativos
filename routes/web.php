@@ -30,6 +30,3 @@ Route::delete('/users/{user}', [UserController::class, 'delete']);
 Route::get('/users/{user}/phone', [UserController::class, 'createPhone']);
 Route::post('/users/{user}/phone', [UserController::class, 'storePhone']);
 Route::delete('/users/{user}/phone/{phone}', [UserController::class, 'deletePhone']);
-
-Route::get('/unoesc', [UnoescController::class, 'index']);
-Route::post('/unoesc', [UnoescController::class, 'login']);
